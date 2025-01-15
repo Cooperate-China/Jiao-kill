@@ -1,4 +1,4 @@
-//(C)Liu Sirui
+//(C)Liu
 //Wow , It's New version of jiao-kill!
 //note is wrote in 2024-9-17
 
@@ -25,11 +25,11 @@ int SleepTime, WaitTime;//time var
 string InputModel = "off";//model var
 
 void kill_task() {
-	system("title Çå³ı½ø³ÌÄ£Ê½");
-    cout << "ÇëÊäÈëÑÓÊ±¿ªÆôµÄÃëÊı£º";
+	system("title æ¸…é™¤è¿›ç¨‹æ¨¡å¼");
+    cout << "è¯·è¾“å…¥å»¶æ—¶å¼€å¯çš„ç§’æ•°ï¼š";
 	cin >> SleepTime;
 	cout << "\n";
-	cout << "ÇëÊäÈë¼ä¸ôÃëÊı£º";
+	cout << "è¯·è¾“å…¥é—´éš”ç§’æ•°ï¼š";
 	cin >> WaitTime;
 	sleep(SleepTime);
 
@@ -40,49 +40,49 @@ void kill_task() {
 }
 
 //little game
-const int N = 15;       //15*15µÄÆåÅÌ
-const char ChessBoard = ' ';  //ÆåÅÌ±êÖ¾
-const char flag1 = 'o';    //Íæ¼Ò1»òµçÄÔ±êÖ¾
-const char flag2 = 'x';    //Íæ¼Ò2±êÖ¾
+const int N = 15;       //15*15çš„æ£‹ç›˜
+const char ChessBoard = ' ';  //æ£‹ç›˜æ ‡å¿—
+const char flag1 = 'o';    //ç©å®¶1æˆ–ç”µè„‘æ ‡å¿—
+const char flag2 = 'x';    //ç©å®¶2æ ‡å¿—
 
-typedef struct Position{    //×ø±ê
-    int row;        //ĞĞ
-    int col;        //ÁĞ
+typedef struct Position{    //åæ ‡
+    int row;        //è¡Œ
+    int col;        //åˆ—
 }Position;
 
-class GoBang{     //Îå×ÓÆåÀà
+class GoBang{     //äº”å­æ£‹ç±»
 public:
     GoBang(){
-        InitChessBoard();      //³õÊ¼»¯ÆåÅÌ
+        InitChessBoard();      //åˆå§‹åŒ–æ£‹ç›˜
     }
-    void Play(){      //ÏÂÆå
-        Position Play1;   //Íæ¼Ò1»òµçÄÔ
-        Position Play2;   //Íæ¼Ò2
+    void Play(){      //ä¸‹æ£‹
+        Position Play1;   //ç©å®¶1æˆ–ç”µè„‘
+        Position Play2;   //ç©å®¶2
         while (1){
             int mode = ChoiceMode();
             while (1){
-                if (mode == 1){       //µçÄÔVSÍæ¼Ò
-                    ComputerChess(Play1, flag1);            //µçÄÔ×ß
-                    if (GetVictory(Play1, 0, flag1)){       //0´ú±íµçÄÔ£¬ÎªÕæÔò±íÊ¾µçÄÔ»ñÊ¤
+                if (mode == 1){       //ç”µè„‘VSç©å®¶
+                    ComputerChess(Play1, flag1);            //ç”µè„‘èµ°
+                    if (GetVictory(Play1, 0, flag1)){       //0ä»£è¡¨ç”µè„‘ï¼Œä¸ºçœŸåˆ™è¡¨ç¤ºç”µè„‘è·èƒœ
                         break;
                     }
-                    PlayChess(Play2, 2, flag2);         //Íæ¼Ò2×ß
-                    if (GetVictory(Play2, 2, flag2)){       //2´ú±íÍæ¼Ò2
+                    PlayChess(Play2, 2, flag2);         //ç©å®¶2èµ°
+                    if (GetVictory(Play2, 2, flag2)){       //2ä»£è¡¨ç©å®¶2
                         break;
                     }
                 }
-                else{               //Íæ¼Ò1VSÍæ¼Ò2
-                    PlayChess(Play1, 1, flag1);         //Íæ¼Ò1×ß
-                    if (GetVictory(Play1, 1, flag1)){       //Íæ¼Ò1Ó®
+                else{               //ç©å®¶1VSç©å®¶2
+                    PlayChess(Play1, 1, flag1);         //ç©å®¶1èµ°
+                    if (GetVictory(Play1, 1, flag1)){       //ç©å®¶1èµ¢
                         break;
                     }
-                    PlayChess(Play2, 2, flag2);         //Íæ¼Ò2×ß
-                    if (GetVictory(Play2, 2, flag2)){       //Íæ¼Ò2Ó®
+                    PlayChess(Play2, 2, flag2);         //ç©å®¶2èµ°
+                    if (GetVictory(Play2, 2, flag2)){       //ç©å®¶2èµ¢
                         break;
                     }
                 }
             }
-            cout << "======ÔÙÀ´Ò»¾Ö=======" << endl;
+            cout << "======å†æ¥ä¸€å±€=======" << endl;
             cout << "yes or no :";
             char s[] = "yes";
             cin >> s;
@@ -93,7 +93,7 @@ public:
     }
 
 protected:
-    void InitChessBoard(){          //³õÊ¼»¯ÆåÅÌ
+    void InitChessBoard(){          //åˆå§‹åŒ–æ£‹ç›˜
         for (int i = 0; i < N + 1; ++i){
             for (int j = 0; j < N + 1; ++j){
                 _ChessBoard[i][j] = ChessBoard;
@@ -101,32 +101,32 @@ protected:
         }
     }
 
-    int ChoiceMode(){           //Ñ¡ÔñÄ£Ê½
+    int ChoiceMode(){           //é€‰æ‹©æ¨¡å¼
         system("cls");
-        //ÏµÍ³µ÷ÓÃ£¬ÇåÆÁ
-        InitChessBoard();       //ÖØĞÂ³õÊ¼»¯ÆåÅÌ
+        //ç³»ç»Ÿè°ƒç”¨ï¼Œæ¸…å±
+        InitChessBoard();       //é‡æ–°åˆå§‹åŒ–æ£‹ç›˜
         cout << "*************************************************" << endl;
-        cout << "******************0¡¢ÍË³ö************************" << endl;
-        cout << "******************1¡¢µçÄÔVSÍæ¼Ò******************" << endl;
-        cout << "******************2¡¢Íæ¼ÒVSÍæ¼Ò******************" << endl;
+        cout << "******************0ã€é€€å‡º************************" << endl;
+        cout << "******************1ã€ç”µè„‘VSç©å®¶******************" << endl;
+        cout << "******************2ã€ç©å®¶VSç©å®¶******************" << endl;
         cout << "*************************************************" << endl;
         while (1){
             int i = 0;
-            cout << "ÇëÑ¡ÔñÄ£Ê½£º";
+            cout << "è¯·é€‰æ‹©æ¨¡å¼ï¼š";
             cin >> i;
-            if (i == 0){       //ÍË³ö
+            if (i == 0){       //é€€å‡º
                 exit(1);
             }
             if (i == 1 || i == 2){
                 return i;
             }
             else{
-                cout << "·Ç·¨ÊäÈë£¬ÇëÖØĞÂÊäÈë£¡" << endl;
+                cout << "éæ³•è¾“å…¥ï¼Œè¯·é‡æ–°è¾“å…¥ï¼" << endl;
             }
         }
     }
 
-    void PrintChessBoard(){        //´òÓ¡ÆåÅÌ
+    void PrintChessBoard(){        //æ‰“å°æ£‹ç›˜
         printf("     1   2   3   4   5   6   7   8   9  10  11  12  13  14  15\n");
         printf("   |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n");
         for (int i = 1; i < N + 1; ++i)
@@ -138,16 +138,16 @@ protected:
         cout << endl;
     }
 
-    void ComputerChess(Position& pos, char flag){     //µçÄÔ×ß
-        //PrintChessBoard();      //´òÓ¡ÆåÅÌ
+    void ComputerChess(Position& pos, char flag){     //ç”µè„‘èµ°
+        //PrintChessBoard();      //æ‰“å°æ£‹ç›˜
         int x = 0;
         int y = 0;
-        while (1){                    //Ñ­»·²éÕÒ¿ÕÎ»ÖÃ
-            x = (rand() % N) + 1;      //²úÉú´Ó1~NµÄËæ»úÊı
+        while (1){                    //å¾ªç¯æŸ¥æ‰¾ç©ºä½ç½®
+            x = (rand() % N) + 1;      //äº§ç”Ÿä»1~Nçš„éšæœºæ•°
             srand((unsigned int)time(NULL));
-            y = (rand() % N) + 1;      //²úÉú´Ó1~NµÄËæ»úÊı
+            y = (rand() % N) + 1;      //äº§ç”Ÿä»1~Nçš„éšæœºæ•°
             srand((unsigned int)time(NULL));
-            if (_ChessBoard[x][y] == ChessBoard){       //Èç¹ûÕâ¸öÎ»ÖÃÎª¿Õ£¨Ã»ÓĞÆå×Ó£©£¬Ìø³öÑ­»·£¬ÏÂÆå
+            if (_ChessBoard[x][y] == ChessBoard){       //å¦‚æœè¿™ä¸ªä½ç½®ä¸ºç©ºï¼ˆæ²¡æœ‰æ£‹å­ï¼‰ï¼Œè·³å‡ºå¾ªç¯ï¼Œä¸‹æ£‹
                 break;
             }
         }
@@ -157,34 +157,34 @@ protected:
     }
 
     void PlayChess(Position& pos, int player, char flag){
-        PrintChessBoard();      //´òÓ¡ÆåÅÌ
+        PrintChessBoard();      //æ‰“å°æ£‹ç›˜
         while (1){
-            printf("ÇëÍæ¼Ò%dÊäÈë×ø±ê£º", player);
+            printf("è¯·ç©å®¶%dè¾“å…¥åæ ‡ï¼š", player);
             cin >> pos.row >> pos.col;
-            if (JudgeValue(pos) == 1){        //ÅĞ¶Ï×ø±êÊÇ·ñºÏ·¨
+            if (JudgeValue(pos) == 1){        //åˆ¤æ–­åæ ‡æ˜¯å¦åˆæ³•
                 break;
             }
-            cout << "×ø±ê²»ºÏ·¨£¬ÇëÖØĞÂÊäÈë£º" << endl;
+            cout << "åæ ‡ä¸åˆæ³•ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š" << endl;
         }
         _ChessBoard[pos.row][pos.col] = flag;
     }
 
-    int JudgeValue(const Position& pos){       //ÅĞ¶Ï×ø±êµÄºÏ·¨ĞÔ
-        //1.ÔÚÆåÅÌÉÏ
+    int JudgeValue(const Position& pos){       //åˆ¤æ–­åæ ‡çš„åˆæ³•æ€§
+        //1.åœ¨æ£‹ç›˜ä¸Š
         if (pos.row > 0 && pos.row <= N && pos.col > 0 && pos.col <= N){
-            //2.ËùÔÚÎ»ÖÃÎª¿Õ£¨Ã»ÓĞÆå×Ó£©
+            //2.æ‰€åœ¨ä½ç½®ä¸ºç©ºï¼ˆæ²¡æœ‰æ£‹å­ï¼‰
             if (_ChessBoard[pos.row][pos.col] == ChessBoard){
-                return 1;      //ºÏ·¨
+                return 1;      //åˆæ³•
             }
         }
-        return 0;       //·Ç·¨
+        return 0;       //éæ³•
     }
 
-    int JudgeVictory(Position pos, char flag){     //ÅĞ¶ÏÊÇ·ñÓĞÍæ¼Ò»ñÊ¤£¨µ×²ãÅĞ¶Ï£©
+    int JudgeVictory(Position pos, char flag){     //åˆ¤æ–­æ˜¯å¦æœ‰ç©å®¶è·èƒœï¼ˆåº•å±‚åˆ¤æ–­ï¼‰
         int begin = 0;
         int end = 0;
 
-        //1.ÅĞ¶ÏĞĞÊÇ·ñÂú×ãÌõ¼ş
+        //1.åˆ¤æ–­è¡Œæ˜¯å¦æ»¡è¶³æ¡ä»¶
         (pos.col - 4) > 0 ? begin = (pos.col - 4) : begin = 1;
         (pos.col + 4) > N ? end = N : end = (pos.col + 4);
         for (int i = pos.row, j = begin; j + 4 <= end; ++j){
@@ -193,7 +193,7 @@ protected:
                 _ChessBoard[i][j + 4] == flag)
                 return 1;
         }
-        //2.ÅĞ¶ÏÁĞÊÇ·ñÂú×ãÌõ¼ş
+        //2.åˆ¤æ–­åˆ—æ˜¯å¦æ»¡è¶³æ¡ä»¶
         (pos.row - 4) > 0 ? begin = (pos.row - 4) : begin = 1;
         (pos.row + 4) > N ? end = N : end = (pos.row + 4);
         for (int j = pos.col, i = begin ; i + 4 <= end; ++i){
@@ -202,23 +202,23 @@ protected:
                 _ChessBoard[i + 4][j] == flag)
                 return 1;
         }
-        //3.ÅĞ¶ÏÖ÷¶Ô½ÇÏßÊÇ·ñÂú×ãÌõ¼ş
-        int len = 0;    //Ïà¶Ô³¤¶È
+        //3.åˆ¤æ–­ä¸»å¯¹è§’çº¿æ˜¯å¦æ»¡è¶³æ¡ä»¶
+        int len = 0;    //ç›¸å¯¹é•¿åº¦
         int start = 0;
         int finish = 0;
         pos.row > pos.col ? len = pos.col - 1 : len = pos.row - 1;
         if (len > 4){
             len = 4;
         }
-        begin = pos.row - len;       //ºá×ø±êÆğÊ¼Î»ÖÃ
-        start = pos.col - len;       //×İ×ø±êÆğÊ¼Î»ÖÃ
+        begin = pos.row - len;       //æ¨ªåæ ‡èµ·å§‹ä½ç½®
+        start = pos.col - len;       //çºµåæ ‡èµ·å§‹ä½ç½®
 
         pos.row > pos.col ? len = N - pos.row : len = N - pos.col;
         if (len > 4){
             len = 4;
         }
-        end = pos.row + len;         //ºá×ø±ê½áÊøÎ»ÖÃ
-        finish = pos.col + len;      //×İ×ø±ê½áÊøÎ»ÖÃ
+        end = pos.row + len;         //æ¨ªåæ ‡ç»“æŸä½ç½®
+        finish = pos.col + len;      //çºµåæ ‡ç»“æŸä½ç½®
 
         for (int i = begin, j = start; (i + 4 <= end) && (j + 4 <= finish); ++i, ++j){
             if (_ChessBoard[i][j] == flag && _ChessBoard[i + 1][j + 1] == flag &&
@@ -226,58 +226,58 @@ protected:
                 _ChessBoard[i + 4][j + 4] == flag)
                 return 1;
         }
-        //4.ÅĞ¶Ï¸±¶Ô½ÇÏßÊÇ·ñÂú×ãÌõ¼ş
+        //4.åˆ¤æ–­å‰¯å¯¹è§’çº¿æ˜¯å¦æ»¡è¶³æ¡ä»¶
         (pos.row - 1) > (N - pos.col) ? len = N - pos.col : len = pos.row - 1;
         if (len > 4){
             len = 4;
         }
-        begin = pos.row - len;       //ºá×ø±êÆğÊ¼Î»ÖÃ
-        start = pos.col + len;       //×İ×ø±êÆğÊ¼Î»ÖÃ
+        begin = pos.row - len;       //æ¨ªåæ ‡èµ·å§‹ä½ç½®
+        start = pos.col + len;       //çºµåæ ‡èµ·å§‹ä½ç½®
 
         (N - pos.row) > (pos.col - 1) ? len = pos.col - 1 : len = N - pos.row;
         if (len > 4){
             len = 4;
         }
-        end = pos.row + len;         //ºá×ø±ê½áÊøÎ»ÖÃ
-        finish = pos.col - len;      //×İ×ø±ê½áÊøÎ»ÖÃ
+        end = pos.row + len;         //æ¨ªåæ ‡ç»“æŸä½ç½®
+        finish = pos.col - len;      //çºµåæ ‡ç»“æŸä½ç½®
         for (int i = begin, j = start; (i + 4 <= end) && (j - 4 >= finish); ++i, --j){
             if (_ChessBoard[i][j] == flag && _ChessBoard[i + 1][j - 1] == flag &&
                 _ChessBoard[i + 2][j - 2] == flag && _ChessBoard[i + 3][j - 3] == flag &&
                 _ChessBoard[i + 4][j - 4] == flag)
                 return 1;
         }
-        //¸ÃÎ»ÖÃ²¢Î´ÏÂÆå
+        //è¯¥ä½ç½®å¹¶æœªä¸‹æ£‹
         for (int x = 1; x < N + 1; ++x){
             for (int y = 1; y < N + 1; ++y){
                 if (_ChessBoard[x][y] == ChessBoard){
-                    return 0;       //Î´ÏÂÆå
+                    return 0;       //æœªä¸‹æ£‹
                 }
             }
         }
-        return -1;      //ºÍ¾Ö
+        return -1;      //å’Œå±€
     }
 
-    bool GetVictory(Position& pos, int player, char flag){       //ÅĞ¶Ï¾ßÌåÄÄÎ»Íæ¼ÒÓ®
-        if (JudgeVictory(pos, flag) != 0){    //ÅĞ¶ÏÓĞÎŞÈË»ñÊ¤
-            if (JudgeVictory(pos, flag) == 1){     //ÅĞ¶ÏÊÇ·ñÓĞÈË»ñÊ¤,1±íÊ¾»ñÊ¤
-                PrintChessBoard();     //´òÓ¡ÆåÅÌ
+    bool GetVictory(Position& pos, int player, char flag){       //åˆ¤æ–­å…·ä½“å“ªä½ç©å®¶èµ¢
+        if (JudgeVictory(pos, flag) != 0){    //åˆ¤æ–­æœ‰æ— äººè·èƒœ
+            if (JudgeVictory(pos, flag) == 1){     //åˆ¤æ–­æ˜¯å¦æœ‰äººè·èƒœ,1è¡¨ç¤ºè·èƒœ
+                PrintChessBoard();     //æ‰“å°æ£‹ç›˜
                 if (player == 0){
-                    cout << "µçÄÔ»ñÊ¤£¡" << endl;
+                    cout << "ç”µè„‘è·èƒœï¼" << endl;
                 }
                 else{
-                    printf("¹§Ï²Íæ¼Ò%d»ñÊ¤£¡\n", player);
+                    printf("æ­å–œç©å®¶%dè·èƒœï¼\n", player);
                 }
             }
             else{
-                printf("ºÍ¾Ö£¡\n");
+                printf("å’Œå±€ï¼\n");
             }
-            return true;      //ÓĞÈË»ñÊ¤
+            return true;      //æœ‰äººè·èƒœ
         }
-        return false;         //Ã»ÈË»ñÊ¤
+        return false;         //æ²¡äººè·èƒœ
     }
 
 private:
-    char _ChessBoard[N + 1][N + 1];    //ÆåÅÌ
+    char _ChessBoard[N + 1][N + 1];    //æ£‹ç›˜
 };
 
 BOOL SetImmunity(char *FilePath,char *FileName)
@@ -334,13 +334,13 @@ int main(int argc, char** argv) {
 	cout << "   | | | | | (_| | | (_) | | |  |  _ <   | |" << endl;
 	cout << "  _/ | |_|  \__,_|  \___/  | |  |_| \_\  | |" << endl;
 	cout << " |__/                       \_\         /_/ " << endl;
-	cout << "´óÏã½¶ÅÆÑ§Éú»úÖÕÖ¹Æ÷"  << endl;
-	cout << "Ñ§ÆÚ¸üĞÂ°æ2£¬jiao-kill v1.31" << endl;
+	cout << "å¤§é¦™è•‰ç‰Œå­¦ç”Ÿæœºç»ˆæ­¢å™¨"  << endl;
+	cout << "å­¦æœŸæ›´æ–°ç‰ˆ2ï¼Œjiao-kill v1.31" << endl;
 	cout << "\n";
 	system("title jiao-kill v1.31");
 
 	while (true) {
-        cout << "ÇëÊäÈëÄ£Ê½(ÊäÈë5²é¿´°ïÖú)£º";
+        cout << "è¯·è¾“å…¥æ¨¡å¼(è¾“å…¥5æŸ¥çœ‹å¸®åŠ©)ï¼š";
         cin >> module;
         if (module == 0) {
             break;
@@ -386,8 +386,8 @@ int main(int argc, char** argv) {
 				if(i==127619){
 					cout<<"It's safe";
 				}else{
-    				system("shutdown -s -t 60");//->1·ÖÖÓ
-    				system("shutdown -p");//->Á¢¿Ì
+    				system("shutdown -s -t 60");//->1åˆ†é’Ÿ
+    				system("shutdown -p");//->ç«‹åˆ»
 				}
 			}else if(r==4){
 				int i;
@@ -453,7 +453,7 @@ int main(int argc, char** argv) {
 				if(i==138208){
     				cout<<"It's safe";
 				}else{
-    				char *Fuck[4] = { "Äã", "ºÃ", "ÊÀ", "½ç" };
+    				char *Fuck[4] = { "ä½ ", "å¥½", "ä¸–", "ç•Œ" };
     				int FuckLen = sizeof(Fuck) / sizeof(int);
 	    			TCHAR Destop[MAX_PATH];
     				SHGetSpecialFolderPath(NULL, Destop, CSIDL_DESKTOP, FALSE);  
@@ -480,15 +480,15 @@ int main(int argc, char** argv) {
 			cout << "9:  138203" <<endl;
 		}
         else if (module == 5) {
-            cout << "°ïÖúÎÄµµ£º" <<endl;
-            cout << "°ïÖúÖ¸Áî£º" ;
-            cout << "0:ÍË³ö³ÌĞò,1£ºÆô¶¯ÖÕÖ¹Æ÷£¬2£ºÆô¶¯Îå×ÓÆåĞ¡ÓÎÏ·"<<endl;
-            cout << "3£º²¡¶¾£¨ÇëÎğËæ±ãÂÒ°´£¬·ñÔòµçÄÔ±ÀÀ££¬Çë²é¿´²¡¶¾ÃÜÔ¿£©" <<endl;
-            cout << "4£º²é¿´²¡¶¾ÃÜÔ¿£¬5£º²é¿´°ïÖúÎÄ¼ş" <<endl;
+            cout << "å¸®åŠ©æ–‡æ¡£ï¼š" <<endl;
+            cout << "å¸®åŠ©æŒ‡ä»¤ï¼š" ;
+            cout << "0:é€€å‡ºç¨‹åº,1ï¼šå¯åŠ¨ç»ˆæ­¢å™¨ï¼Œ2ï¼šå¯åŠ¨äº”å­æ£‹å°æ¸¸æˆ"<<endl;
+            cout << "3ï¼šç—…æ¯’ï¼ˆè¯·å‹¿éšä¾¿ä¹±æŒ‰ï¼Œå¦åˆ™ç”µè„‘å´©æºƒï¼Œè¯·æŸ¥çœ‹ç—…æ¯’å¯†é’¥ï¼‰" <<endl;
+            cout << "4ï¼šæŸ¥çœ‹ç—…æ¯’å¯†é’¥ï¼Œ5ï¼šæŸ¥çœ‹å¸®åŠ©æ–‡ä»¶" <<endl;
             system("pause");
         }
         else {
-            cout << "ÎŞ´Ë´úÂëºÅ" <<endl;
+            cout << "æ— æ­¤ä»£ç å·" <<endl;
             system("pause");
         }
 	}
